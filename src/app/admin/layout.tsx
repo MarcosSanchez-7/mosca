@@ -1,0 +1,23 @@
+import { Sidebar } from "@/components/admin/Sidebar";
+
+export const metadata = {
+  title: {
+    template: "%s | Admin — PixelImport",
+    default: "Dashboard | Admin — PixelImport",
+  },
+};
+
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex min-h-screen bg-surface">
+      <Sidebar />
+      <div className="flex-1 flex flex-col min-w-0">
+        {children}
+      </div>
+    </div>
+  );
+}
