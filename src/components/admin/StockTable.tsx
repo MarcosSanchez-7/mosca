@@ -116,9 +116,14 @@ export function StockTable({ initialProducts }: { initialProducts: ProductWithSt
     return matchSearch && matchFilter;
   });
 
-  const handleSave = (id: string, newStock: number) => {
+  const handleSave = async (id: string, newStock: number) => {
     setProducts((prev) => prev.map((p) => p.id === id ? { ...p, stock: newStock } : p));
     setEditing(null);
+    await fetch("/api/admin/stock", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ product_id: id, quantity: newStock }),
+    });
   };
 
   return (

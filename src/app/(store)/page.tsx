@@ -5,7 +5,7 @@ import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { PromoSection } from "@/components/home/PromoSection";
 import { BentoGrid } from "@/components/home/BentoGrid";
 import { Newsletter } from "@/components/home/Newsletter";
-import { getCategories, getFeaturedProducts } from "@/lib/supabase/queries";
+import { getCategories, getFeaturedProducts, getSiteConfig } from "@/lib/supabase/queries";
 
 export const metadata: Metadata = {
   title: "PixelImport — Tecnología Importada Premium",
@@ -14,17 +14,19 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const [categories, featuredProducts] = await Promise.all([
+  const [categories, featuredProducts, heroConfig, promoConfig] = await Promise.all([
     getCategories(),
     getFeaturedProducts(),
+    getSiteConfig("hero"),
+    getSiteConfig("promo"),
   ]);
 
   return (
     <>
-      <Hero />
+      <Hero config={heroConfig} />
       <CategoryGrid categories={categories} />
       <FeaturedProducts products={featuredProducts} />
-      <PromoSection />
+      <PromoSection config={promoConfig} />
       <BentoGrid products={featuredProducts.slice(0, 4)} />
       <Newsletter />
     </>
