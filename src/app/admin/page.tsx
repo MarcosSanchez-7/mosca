@@ -18,22 +18,22 @@ function StatCard({
   sub?: string;
 }) {
   return (
-    <div className="bg-surface-container-lowest rounded-2xl p-6 editorial-shadow flex items-start gap-4">
+    <div className="bg-surface-container-lowest rounded-2xl p-4 sm:p-5 editorial-shadow flex items-start gap-3">
       <div
-        className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+        className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0"
         style={{ background: color + "18" }}
       >
         <span
           className="material-symbols-outlined"
-          style={{ fontSize: 22, color, fontVariationSettings: "'FILL' 1" }}
+          style={{ fontSize: 18, color, fontVariationSettings: "'FILL' 1" }}
         >
           {icon}
         </span>
       </div>
-      <div>
-        <p className="text-2xl font-bold text-on-surface leading-none">{value}</p>
-        <p className="text-sm text-on-surface-variant mt-1 font-medium">{label}</p>
-        {sub && <p className="text-xs text-on-surface-variant mt-1">{sub}</p>}
+      <div className="min-w-0">
+        <p className="text-xl sm:text-2xl font-bold text-on-surface leading-none">{value}</p>
+        <p className="text-xs sm:text-sm text-on-surface-variant mt-1 font-medium leading-tight">{label}</p>
+        {sub && <p className="text-xs text-on-surface-variant/70 mt-0.5 leading-tight">{sub}</p>}
       </div>
     </div>
   );

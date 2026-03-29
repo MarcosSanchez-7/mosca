@@ -362,6 +362,15 @@ export function AddProductForm({ categories }: { categories: Category[] }) {
         </div>
       )}
 
+      {/* Image — always first, full width on mobile */}
+      <div className="bg-surface-container-lowest rounded-2xl p-6 ambient-shadow space-y-3">
+        <h3 className="text-sm font-semibold text-on-surface">Imagen del producto</h3>
+        <ImageUploader
+          value={form.image_url}
+          onChange={(url) => set("image_url", url)}
+        />
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left column — main info */}
         <div className="lg:col-span-2 space-y-5">
@@ -512,15 +521,6 @@ export function AddProductForm({ categories }: { categories: Category[] }) {
                 <option value="imported">Importado</option>
               </select>
             </Field>
-          </div>
-
-          {/* Image section */}
-          <div className="bg-surface-container-lowest rounded-2xl p-6 ambient-shadow space-y-3">
-            <h3 className="text-sm font-semibold text-on-surface">Imagen del producto</h3>
-            <ImageUploader
-              value={form.image_url}
-              onChange={(url) => set("image_url", url)}
-            />
           </div>
 
           <div className="bg-surface-container-lowest rounded-2xl p-6 ambient-shadow">
