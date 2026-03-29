@@ -12,7 +12,7 @@ export default async function ContentPage() {
   ]);
 
   return (
-    <div className="flex-1 p-8 overflow-auto">
+    <div className="flex-1 p-4 sm:p-6 lg:p-8 overflow-auto">
       {/* Header */}
       <div className="mb-8">
         <p className="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-1">Admin</p>

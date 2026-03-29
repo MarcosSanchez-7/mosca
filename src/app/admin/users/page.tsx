@@ -26,11 +26,11 @@ export default async function UsersPage() {
   const active = users.filter((u) => u.status === "active").length;
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-6 lg:p-8">
       {/* Header */}
-      <div className="flex items-start justify-between mb-6">
+      <div className="flex items-start justify-between mb-5 sm:mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-on-surface">Usuarios</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-on-surface">Usuarios</h1>
           <p className="text-on-surface-variant mt-1 text-sm">
             {users.length} registrados · {active} activos
           </p>
@@ -38,7 +38,7 @@ export default async function UsersPage() {
       </div>
 
       {/* Stats row */}
-      <div className="grid grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-5 sm:mb-6">
         {[
           { label: "Total usuarios", value: users.length, icon: "group", color: "var(--color-primary)" },
           { label: "Activos", value: active, icon: "check_circle", color: "#10b981" },
@@ -61,7 +61,8 @@ export default async function UsersPage() {
 
       {/* Table */}
       <div className="bg-surface-container-lowest rounded-2xl editorial-shadow overflow-hidden">
-        <table className="w-full">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[640px]">
           <thead>
             <tr className="text-xs text-on-surface-variant font-medium"
               style={{ background: "var(--color-surface-container-low)", borderBottom: "1px solid var(--color-outline-variant)" }}>
@@ -141,7 +142,8 @@ export default async function UsersPage() {
           </tbody>
         </table>
 
-        <div className="px-6 py-3 text-xs text-on-surface-variant"
+        </div>
+        <div className="px-4 sm:px-6 py-3 text-xs text-on-surface-variant"
           style={{ borderTop: "1px solid var(--color-outline-variant)", background: "var(--color-surface-container-low)" }}>
           {users.length} usuarios registrados
         </div>

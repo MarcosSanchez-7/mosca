@@ -48,17 +48,17 @@ export default async function AdminDashboard() {
   const recent = products.slice(0, 5);
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-6 lg:p-8">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-on-surface">Dashboard</h1>
+      <div className="mb-6 sm:mb-8">
+        <h1 className="text-xl sm:text-2xl font-bold text-on-surface">Dashboard</h1>
         <p className="text-on-surface-variant mt-1 text-sm">
           Resumen general del negocio
         </p>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 mb-10">
+      <div className="grid grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-10">
         <StatCard
           label="Productos"
           value={stats.totalProducts}
@@ -90,7 +90,7 @@ export default async function AdminDashboard() {
       </div>
 
       {/* Quick actions */}
-      <div className="grid grid-cols-3 gap-3 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8 sm:mb-10">
         {[
           { href: "/admin/products/new", icon: "add_box", label: "Nuevo producto", desc: "Agregar al catálogo" },
           { href: "/admin/stock", icon: "inventory_2", label: "Gestionar stock", desc: "Editar cantidades" },
@@ -116,13 +116,14 @@ export default async function AdminDashboard() {
 
       {/* Recent products */}
       <div className="bg-surface-container-lowest rounded-2xl editorial-shadow overflow-hidden">
-        <div className="px-6 py-4 flex items-center justify-between" style={{ borderBottom: "1px solid var(--color-outline-variant)" }}>
+        <div className="px-4 sm:px-6 py-4 flex items-center justify-between" style={{ borderBottom: "1px solid var(--color-outline-variant)" }}>
           <h2 className="text-sm font-semibold text-on-surface">Productos recientes</h2>
           <Link href="/admin/stock" className="text-xs text-primary font-medium hover:underline">
             Ver todos →
           </Link>
         </div>
-        <table className="w-full">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[520px]">
           <thead>
             <tr className="text-xs text-on-surface-variant font-medium" style={{ background: "var(--color-surface-container-low)" }}>
               <th className="text-left px-6 py-3">Producto</th>
@@ -175,6 +176,7 @@ export default async function AdminDashboard() {
             })}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

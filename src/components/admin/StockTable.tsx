@@ -129,8 +129,8 @@ export function StockTable({ initialProducts }: { initialProducts: ProductWithSt
   return (
     <>
       {/* Filters */}
-      <div className="flex items-center gap-3 mb-5 flex-wrap">
-        <div className="flex items-center gap-2 bg-surface-container-lowest rounded-full px-4 py-2 ambient-shadow flex-1 min-w-48">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-5">
+        <div className="flex items-center gap-2 bg-surface-container-lowest rounded-full px-4 py-2 ambient-shadow flex-1">
           <span className="material-symbols-outlined text-on-surface-variant" style={{ fontSize: 18 }}>search</span>
           <input
             type="text"
@@ -140,7 +140,7 @@ export function StockTable({ initialProducts }: { initialProducts: ProductWithSt
             className="bg-transparent text-sm text-on-surface outline-none flex-1 placeholder:text-on-surface-variant"
           />
         </div>
-        <div className="flex items-center gap-1.5 p-1 bg-surface-container-lowest rounded-full ambient-shadow">
+        <div className="flex items-center gap-1 p-1 bg-surface-container-lowest rounded-full ambient-shadow overflow-x-auto">
           {(["all", "critical", "low", "ok"] as const).map((f) => (
             <button
               key={f}
@@ -160,7 +160,8 @@ export function StockTable({ initialProducts }: { initialProducts: ProductWithSt
 
       {/* Table */}
       <div className="bg-surface-container-lowest rounded-2xl editorial-shadow overflow-hidden">
-        <table className="w-full">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[640px]">
           <thead>
             <tr className="text-xs text-on-surface-variant font-medium"
               style={{ background: "var(--color-surface-container-low)", borderBottom: "1px solid var(--color-outline-variant)" }}>
@@ -239,8 +240,9 @@ export function StockTable({ initialProducts }: { initialProducts: ProductWithSt
           </tbody>
         </table>
 
+        </div>
         {/* Footer summary */}
-        <div className="px-6 py-3 flex items-center gap-4 text-xs text-on-surface-variant"
+        <div className="px-4 sm:px-6 py-3 flex items-center gap-3 sm:gap-4 text-xs text-on-surface-variant flex-wrap"
           style={{ borderTop: "1px solid var(--color-outline-variant)", background: "var(--color-surface-container-low)" }}>
           <span>{filtered.length} productos</span>
           <span>·</span>

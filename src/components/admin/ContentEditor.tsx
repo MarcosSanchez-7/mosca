@@ -317,7 +317,7 @@ function HeroTab({ initialConfig }: { initialConfig: HeroConfig }) {
         <Field label="Badge (texto pequeño arriba)">
           <input value={config.badge} onChange={(e) => set("badge", e.target.value)} className={inputCls} />
         </Field>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <Field label="Línea 1">
             <input value={config.title_line1} onChange={(e) => set("title_line1", e.target.value)} className={inputCls} />
           </Field>
@@ -331,7 +331,7 @@ function HeroTab({ initialConfig }: { initialConfig: HeroConfig }) {
         <Field label="Subtítulo">
           <textarea rows={2} value={config.subtitle} onChange={(e) => set("subtitle", e.target.value)} className={cn(inputCls, "resize-none")} />
         </Field>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Field label="Botón primario — texto">
             <input value={config.cta_primary_text} onChange={(e) => set("cta_primary_text", e.target.value)} className={inputCls} />
           </Field>
@@ -351,7 +351,7 @@ function HeroTab({ initialConfig }: { initialConfig: HeroConfig }) {
       <div className="bg-surface-container-lowest rounded-2xl p-6 ambient-shadow space-y-4">
         <h3 className="text-sm font-semibold text-on-surface">Tarjeta flotante (derecha)</h3>
         <ImageInput value={config.card_image_url} onChange={(url) => set("card_image_url", url)} label="Imagen del producto" />
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Field label="Etiqueta (ej: Destacado)">
             <input value={config.card_label} onChange={(e) => set("card_label", e.target.value)} className={inputCls} />
           </Field>
@@ -412,7 +412,7 @@ function PromoTab({ initialConfig }: { initialConfig: PromoConfig }) {
           <input value={config.badge} onChange={(e) => set("badge", e.target.value)} className={inputCls} />
         </Field>
 
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <Field label="Línea 1 del título">
             <input value={config.title_line1} onChange={(e) => set("title_line1", e.target.value)} className={inputCls} />
           </Field>
@@ -428,7 +428,7 @@ function PromoTab({ initialConfig }: { initialConfig: PromoConfig }) {
           <textarea rows={3} value={config.description} onChange={(e) => set("description", e.target.value)} className={cn(inputCls, "resize-none")} />
         </Field>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Field label="Botón primario — texto">
             <input value={config.cta_primary_text} onChange={(e) => set("cta_primary_text", e.target.value)} className={inputCls} />
           </Field>
@@ -475,7 +475,7 @@ export function ContentEditor({
   return (
     <div>
       {/* Tab bar */}
-      <div className="flex items-center gap-1 p-1 bg-surface-container-low rounded-2xl w-fit mb-8">
+      <div className="flex items-center gap-1 p-1 bg-surface-container-low rounded-2xl w-full sm:w-fit mb-6 sm:mb-8 overflow-x-auto">
         {TABS.map(({ id, label, icon }) => (
           <button
             key={id}
